@@ -1312,6 +1312,26 @@ spec:
     kind: Deployment
     name: stream
 ---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: pixelstream-ingress
+  namespace: demo
+  annotations:
+    app.kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - host: mirnes.tech
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: router
+              port:
+                number: 80
 # apiVersion: networking.k8s.io/v1
 # kind: Ingress
 # metadata:
@@ -1341,24 +1361,4 @@ spec:
 #             path: /(.*)
 #             pathType: Prefix
 # ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: pixelstream-ingress
-  namespace: demo
-  annotations:
-    app.kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
-spec:
-  rules:
-  - host: mirnes.tech
-    http:
-      paths:
-        - path: /
-          pathType: Prefix
-          backend:
-            service:
-              name: router
-              port:
-                number: 80
 
