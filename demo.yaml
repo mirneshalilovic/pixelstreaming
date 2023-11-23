@@ -1351,7 +1351,7 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: alessonviana.tech
+  - host: mirnes.tech
     http:
       paths:
         - path: /
