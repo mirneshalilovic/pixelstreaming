@@ -1344,19 +1344,20 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: pixelstream-ingress
+  name: name: pixelstream-ingress
   namespace: demo
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    app.kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  ingressClassName: nginx 
   rules:
-  - http:
+  - host: alessonviana.tech
+    http:
       paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: router
-            port:
-              number: 80
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: router
+              port:
+                number: 80
