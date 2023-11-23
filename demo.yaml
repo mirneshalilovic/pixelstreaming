@@ -832,6 +832,7 @@ spec:
           resources:
             limits:
               nvidia.com/gpu: 1
+          runtimeClassName: nvidia
         - args:
             - -ec
             - |
