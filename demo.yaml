@@ -777,6 +777,7 @@ spec:
         app.kubernetes.io/version: 0.0.1
         version: 0.0.1
     spec:
+      runtimeClassName: nvidia
       containers:
         - args:
             - --configFile=/config/cirrus.json
@@ -832,7 +833,6 @@ spec:
           resources:
             limits:
               nvidia.com/gpu: 1
-          runtimeClassName: nvidia
         - args:
             - -ec
             - |
