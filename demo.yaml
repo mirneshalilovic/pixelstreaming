@@ -1070,22 +1070,22 @@ spec:
                   name: turn-secret
           image: ghcr.io/oracle-quickstart/oke-unreal-pixel-streaming/turn-api:latest
           imagePullPolicy: Always
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: http
           name: api
           ports:
             - containerPort: 3000
               name: http
               protocol: TCP
-          readinessProbe:
-            failureThreshold: 5
-            httpGet:
-              path: /healthz
-              port: http
-            initialDelaySeconds: 20
-            periodSeconds: 30
+          # readinessProbe:
+          #   failureThreshold: 5
+          #   httpGet:
+          #     path: /healthz
+          #     port: http
+          #   initialDelaySeconds: 20
+          #   periodSeconds: 30
           resources:
             limits:
               cpu: 40m
