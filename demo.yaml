@@ -842,19 +842,19 @@ spec:
           #resources:
           #  requests:
           #    cpu: 3750m
-        # - args:
-        #     - -ec
-        #     - |
-        #       while true; do
-        #         # obtain player connections from metrics
-        #         export PLAYERS=$(curl -s "${SELF_METRICS}" | grep ^signalserver_player_socket_connections | awk '{print $2}')
+        - args:
+            - -ec
+            - |
+              while true; do
+                # obtain player connections from metrics
+                export PLAYERS=$(curl -s "${SELF_METRICS}" | grep ^signalserver_player_socket_connections | awk '{print $2}')
 
-        #         # apply player connections as the pod deletion cost
-        #         kubectl annotate pod "${POD_NAME}" \
-        #           --namespace "${NAMESPACE}" \
-        #           --overwrite controller.kubernetes.io/pod-deletion-cost="${PLAYERS}" || true
-        #         sleep 10
-        #       done
+                # apply player connections as the pod deletion cost
+                kubectl annotate pod "${POD_NAME}" \
+                  --namespace "${NAMESPACE}" \
+                  --overwrite controller.kubernetes.io/pod-deletion-cost="${PLAYERS}" || true
+                sleep 10
+              done
           command:
             - /bin/sh
           env:
