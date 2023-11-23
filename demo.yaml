@@ -836,9 +836,9 @@ spec:
           ports:
             - containerPort: 8111
               name: rest
-          resources:
-            requests:
-              cpu: 3750m
+          #resources:
+          #  requests:
+          #    cpu: 3750m
         - args:
             - -ec
             - |
