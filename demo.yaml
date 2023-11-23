@@ -798,10 +798,10 @@ spec:
                   fieldPath: status.podIP
           image: ghcr.io/oracle-quickstart/oke-unreal-pixel-streaming/signalserver:latest
           imagePullPolicy: Always
-          livenessProbe:
-            httpGet:
-              path: /healthz
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: http
           name: signaler
           ports:
             - containerPort: 3000
