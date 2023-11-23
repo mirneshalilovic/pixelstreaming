@@ -810,10 +810,10 @@ spec:
               name: stream
             - containerPort: 9000
               name: metrics
-          readinessProbe:
-            httpGet:
-              path: /healthz
-              port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /healthz
+          #     port: http
           volumeMounts:
             - mountPath: /config
               name: config
