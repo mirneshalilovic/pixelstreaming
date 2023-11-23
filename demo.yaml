@@ -1329,7 +1329,7 @@ metadata:
   name: pixelstream-ingress
   namespace: demo
 spec:
-  ingressClassName: traefik
+  ingressClassName: nginx
   rules:
     - http:
         paths:
