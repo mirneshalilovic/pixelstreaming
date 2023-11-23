@@ -855,8 +855,8 @@ spec:
         #           --overwrite controller.kubernetes.io/pod-deletion-cost="${PLAYERS}" || true
         #         sleep 10
         #       done
-        #   command:
-        #     - /bin/sh
+          command:
+            - /bin/sh
           env:
             - name: SELF_METRICS
               value: http://localhost:9000/custom
