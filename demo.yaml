@@ -1317,6 +1317,7 @@ kind: Ingress
 metadata:
   annotations:
     cert-manager.io/issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/affinity: cookie
     nginx.ingress.kubernetes.io/rewrite-target: /$1
     nginx.ingress.kubernetes.io/session-cookie-name: pxstream-ingress
@@ -1329,7 +1330,6 @@ metadata:
   name: pixelstream-ingress
   namespace: demo
 spec:
-  ingressClassName: nginx
   rules:
     - http:
         paths:
